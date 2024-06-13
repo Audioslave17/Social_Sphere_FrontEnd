@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import * as Yup from 'yup'
 
 const initialValues ={email:"",password:"",};
-const validationSchema = {email:Yup.string().email("Invelid Email").required("Email is Required"),
+const validationSchema = {email:Yup.string().email("Invalid Email").required("Email is Required"),
   password:Yup.string().min(6,"Password must be at least 6 characters").required("Password is required")
 };
 const Login = () => {
