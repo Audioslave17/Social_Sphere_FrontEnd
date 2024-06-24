@@ -1,18 +1,24 @@
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./auth.actionType";
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE} from "./auth.actionType";
 
 const initialstate ={
     jwt:null,
     error:null,
     loading:false
 }
-const authReducer = (state=initialstate,action) => {
+export const authReducer = (state=initialstate,action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
+        case REGISTER_REQUEST:
             return {...state, loading: true, error:null}
+
         case LOGIN_SUCCESS:
+        case REGISTER_SUCCESS:
             return {...state, jwt:action.payload ,loading:false, error:null}
+
         case LOGIN_FAILURE:
-            return {...state, loading: false, error:action.payload}     
+        case REGISTER_FAILURE:    
+            return {...state, loading: false, error:action.payload}  
+
         default:
             return state;
     }
